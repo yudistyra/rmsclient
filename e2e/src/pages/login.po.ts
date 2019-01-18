@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, protractor } from 'protractor';
 
 export class LoginPage {
   navigateTo() {
@@ -21,15 +21,15 @@ export class LoginPage {
     return element(by.name('password'));
   }
 
+  getButtonLogin() {
+    return element(by.buttonText('Log in'));
+  }
+
   getFormLogin() {
       return element(by.id('loginForm'));
   }
 
-  loginSuccess() {
-      return browser.get('/home');
-  }
-
   getTitleText() {
-      return element(by.tagName('title')).getText();
+      return browser.getCurrentUrl();
   }
 }

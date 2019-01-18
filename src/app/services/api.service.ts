@@ -5,11 +5,11 @@ import { ApiResponse } from '../model/api.response';
 
 @Injectable()
 export class ApiService {
-    baseUrl: string = 'http://localhost:8080/api/'
+    baseUrl: string = 'http://localhost:8080/rmsservice/'
 
     constructor(private http: HttpClient) {}
 
     login(loginPayload) : Observable<ApiResponse> {
-        return this.http.post<ApiResponse>(this.baseUrl + 'auth/signin', loginPayload);
+        return this.http.post<ApiResponse>(this.baseUrl + 'api/v1/auth', loginPayload);
     }
 }

@@ -2,7 +2,6 @@ import { Before, Given, Then, When } from 'cucumber';
 import { expect } from 'chai';
 
 import { LoginPage } from '../pages/login.po';
-import { async } from '@angular/core/testing';
 
 let page: LoginPage;
 
@@ -37,10 +36,10 @@ When('I fill password with {string}', async (string) => {
   });
 
   When('I click on the button login', async () => {
-    await page.getFormLogin().submit();
+    expect(await page.getButtonLogin().getText()).to.equal('Log in');
   });
 
-  Then('I should be redirected on {string}', async (string) => {
-    console.log(page.getTitleText());
-    //expect(await page.getTitleText()).to.equal(string);
+  Then('I should be redirected on {string}', {timeout: 60 * 1000}, async (string) => {
+    page.getFormLogin().submit();
+    expect(await page.getTitleText()).to.equal('http://localhost:4200/' + string);
   });

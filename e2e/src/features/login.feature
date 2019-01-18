@@ -6,4 +6,4 @@ Feature: User Authentication
         When I fill username with "admin"
         When I fill password with "123456"
         When I click on the button login
-        Then I should be redirected on "Home"
+        Then I should be redirected on "home"
