@@ -22,7 +22,7 @@ export class LoginPage {
   }
 
   getButtonLogin() {
-    return element(by.buttonText('Log in'));
+    return element(by.buttonText('Login'));
   }
 
   getFormLogin() {

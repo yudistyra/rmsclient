@@ -36,7 +36,7 @@ When('I fill password with {string}', async (string) => {
   });
 
   When('I click on the button login', async () => {
-    expect(await page.getButtonLogin().getText()).to.equal('Log in');
+    expect(await page.getButtonLogin().getText()).to.equal('Login');
   });
 
   Then('I should be redirected on {string}', {timeout: 60 * 1000}, async (string) => {

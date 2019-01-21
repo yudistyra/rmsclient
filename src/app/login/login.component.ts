@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   invalidLogin:boolean = false;
 
-  constructor(private apiService: ApiService,
+  constructor(private authService: AuthService,
               private router: Router) { }
 
   ngOnInit() {
@@ -23,15 +23,6 @@ export class LoginComponent implements OnInit {
       password: form.value.password
     }
     
-    this.apiService.login(loginPayload).subscribe(response => {
-      if(response.status === 200) {
-        window.localStorage.setItem('token', response.jwtResponse.accessToken);
-        this.router.navigate(['home']);
-      }
-      else {
-        this.invalidLogin = true;
-        alert(response.message);
-      }
-    });
+    this.authService.signInUser(loginPayload);
   }
 }
