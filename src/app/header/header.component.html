@@ -1,7 +1,24 @@
 <mat-toolbar color="primary">
-  <div><a routerLink="/">LOGO</a></div>
+  <div><a routerLink="/">MORE - Mitrais Online Recruitment</a></div>
+  <div fxFlex fxLayout fxLayoutAlign="start">
+      <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+          <li>
+            <a
+              routerLink="/">
+                <mat-icon class="icon">home</mat-icon>
+                <span class="label">Home</span>
+            </a>
+          </li>
+          <li>
+              <a routerLink="/users">
+                <mat-icon class="icon">people</mat-icon>
+                <span class="label">User</span>
+               </a>
+          </li>
+      </ul>
+  </div>
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
-    <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+    <div>
         <mat-toolbar-row>
             <button mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon>menu</mat-icon>
@@ -17,6 +34,6 @@
           </button>
         </mat-menu>
         </mat-toolbar-row>
-    </ul>
+      </div>
   </div>
 </mat-toolbar>

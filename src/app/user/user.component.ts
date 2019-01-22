@@ -1,20 +1,21 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-
-import { User } from '../model/user.model';
 import { ApiService } from '../services/api.service';
+import { User } from '../model/user.model';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
-export class HomeComponent implements OnInit {
+export class UserComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'email'];
   users: User[];
+  adduser: boolean = false;
   constructor(
     private apiService: ApiService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute ) { }
 
   ngOnInit() {
     if(!window.localStorage.getItem('token')) {
@@ -27,4 +28,8 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  addUser() {
+    this.adduser = true;
+    this.router.navigate(['create'], { relativeTo: this.route });
+  }
 }

@@ -30,6 +30,7 @@
     <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)                 
   </div>
 </div>-->
+<section id="login">
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>Login</mat-card-title>
@@ -44,15 +45,15 @@
           >
           <mat-error *ngIf="usernameInput.hasError('required')">username must not be empty</mat-error>
       </mat-form-field>
-      <mat-form-field hintLabel="Should be at least 6 characters length.">
+      <mat-form-field>
         <input 
           type="password" matInput placeholder="Your Password" ngModel name="password"
-          required minlength="6"
+          required
           #passwordinput="ngModel">
-          <mat-hint align="end">{{ passwordinput.value?.length }} / 6</mat-hint>
-          <mat-error>Has to be 6 characters long.</mat-error>
+          <mat-error *ngIf="passwordinput.hasError('required')">password must not be empty</mat-error>
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary" style="margin-top: 20px;">Login</button>
     </form>
   </mat-card-content>
 </mat-card>
+</section>

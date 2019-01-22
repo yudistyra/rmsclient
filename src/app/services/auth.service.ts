@@ -12,12 +12,12 @@ export class AuthService {
     signInUser(loginPayLoad) {
         this.apiService.login(loginPayLoad).subscribe(response => {
             if(response.status === 200) {
-              window.localStorage.setItem('token', response.jwtResponse.accessToken);
-              this.token = response.jwtResponse.accessToken;
+              window.localStorage.setItem('token', response.accessToken);
+              this.token = response.accessToken;
               this.router.navigate(['home']);
             }
             else {
-              alert(response.message);
+              alert("Invalid username or Password!");
             }
           });
     }

@@ -16,6 +16,8 @@ import { MaterialModule } from './material.module';
 import { HeaderComponent } from './header/header.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
+import { UserComponent } from './user/user.component';
+import { AddUserComponent } from './user/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { AuthGuard } from './services/auth-guard.service';
     LoginComponent,
     HomeComponent,
     AlertComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
